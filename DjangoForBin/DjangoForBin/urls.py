@@ -36,15 +36,3 @@ urlpatterns = [
     url('^hello/$', hello),
     url('^testdb/$', testdb),
 ]
-
-
-
-# git config --global user.name "abc515952853"
-# git config --global user.email "515952853@qq.com"
-
-echo "# DjangoForBin" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin https://github.com/abc515952853/DjangoForBin.git
-git push -u origin master
