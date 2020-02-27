@@ -8,9 +8,9 @@ from TestModel.models import Test
 def testdb(request):
   # response = ""
   # response1 = ""
-  # test1 = Test(name='w3cschool.cn')
-  # test1.save()
-  # return HttpResponse("<p>数据添加成功！</p>")
+  test1 = Test(name='w3cschool.cn')
+  test1.save()
+  return HttpResponse("<p>数据添加成功！</p>")
 
   # list = Test.objects.all()
   # for var in list:
