@@ -29,10 +29,22 @@ Including another URLconf
 
 
 from django.conf.urls import *
-from DjangoForBin.view import hello
+from DjangoForBin.view import hello,my_homepage_view,current_datetime,hours_ahead
 from DjangoForBin.testdb import testdb
+from DjangoForBin import search,search2
+
+# from django.conf.urls import url,include
+from django.contrib import admin
 
 urlpatterns = [
+    url('admin/', admin.site.urls),
+    url('^$', my_homepage_view),
     url('^hello/$', hello),
     url('^testdb/$', testdb),
+    url('^search-form/$', search.search_form),
+    url('^search/$', search.search),
+    url('^search-post/$', search2.search_post),
+    url('^time/$',current_datetime),
+    url('^currenttime/$',current_datetime),
+    url(r'^time/plus/(\d{1,2})/$',hours_ahead)
 ]
