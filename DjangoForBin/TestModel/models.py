@@ -9,7 +9,7 @@ class Test(models.Model):
 
 
 class Contact(models.Model):
-    name   = models.CharField(max_length=200)
+    name   = models.CharField(max_length=100)
     age    = models.IntegerField(default=0)
     email  = models.EmailField()
     def __unicode__(self):
@@ -20,3 +20,6 @@ class Tag(models.Model):
     name    = models.CharField(max_length=50)
     def __unicode__(self):
         return self.name
+
+
+
