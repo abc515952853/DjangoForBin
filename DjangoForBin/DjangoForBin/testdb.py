@@ -20,5 +20,6 @@ def testdb(request):
 
   Test.objects.filter(id=1).update(name='Cschool教程')
   Test.objects.all().delete()
+
   return HttpResponse("<p>" + '修改成功' + "</p>")
 

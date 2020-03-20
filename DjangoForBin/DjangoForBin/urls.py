@@ -36,6 +36,7 @@ from django.urls import path,include
 
 # from django.conf.urls import url,include
 from django.contrib import admin
+from blog.views import  index
 
 
 extra_patterns = [
@@ -63,8 +64,12 @@ urlpatterns = [
     # path('post/',include('TestModel.testurl.urlone')),
 
 
-    path(r'bbb/', include("TestModel.testurl.urlone",namespace = 'bbb')),
-    path(r'ccc/', include("TestModel.testurl.urlone",namespace = 'ccc')),
+    # path(r'bbb/', include("TestModel.testurl.urlone",namespace = 'bbb')),
+    # path(r'ccc/', include("TestModel.testurl.urlone",namespace = 'ccc')),
+    # path(r'ccc/',index),
+    path(r'login/',view.login),
+    path(r'event_manage/',view.event_manage),
+    path(r'accounts/login/',view.login)
 ]
 
 

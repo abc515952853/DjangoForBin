@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'TestModel',               # 添加模型by沈斌
-    'blog'
+    'blog',
+    'Conference'
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+

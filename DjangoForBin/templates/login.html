@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Django Page1</title>
+    </head>
+    <body>
+        <h1>登录</h1>
+        <form method="POST" action="/login/">
+            <input name = 'username' tpye = "text" placeholder="username"></br>
+            <input name = 'password' tpye = "text" placeholder="password"></br>
+            <button id = 'btn' type = "submit">登录</button>
+            <p>{{error}}</p>
+        </form>
+    </body>
+</html>

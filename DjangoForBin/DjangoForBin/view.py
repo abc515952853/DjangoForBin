@@ -7,6 +7,8 @@ from django.template import loader, Context,RequestContext
 import datetime
 
 
+
+
 def hello(request):
     return HttpResponse("Hello world ! ")
 
@@ -116,3 +118,42 @@ def bad_request(request,exception):
     context = {}
     context['hello'] = 'Hello 400!'
     return render(request,'hello.html',context)
+
+
+
+
+from django.contrib import auth
+def login(request):
+    print(request.method)
+    if request.method == 'GET':
+        return render(request,'login.html')
+    elif request.method == 'POST':
+        username = request.POST.get('username',None)
+        password = request.POST.get('password',None)
+
+        user = auth.authenticate(username = username,password = password) ##引用django的认证
+        if user is not None:
+            print(user)
+            auth.login(request,user)#认证通过登录
+        # if username == 'shenbin' and password == '123456':
+            re = HttpResponseRedirect('/event_manage/')
+            # re.set_cookie('user',username,3600)
+            request.session['user'] = username
+            return re 
+            # return HttpResponseRedirect('/event_manage/')
+        else:
+            return render(request,'login.html',{'error':'Login Faild!!'})
+    else:
+        return Http404
+
+
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def event_manage(request):
+    # username = request.COOKIES.get('user',None)
+    username = request.session.get('user',None)
+    return render(request,"event_manage.html",{"username":username})
+
+    
+    
